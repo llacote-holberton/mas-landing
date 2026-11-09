@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#151617">
+<meta name="description" content="MAS (Microsoft Audit System), par Oxydian : l'audit de sécurité Microsoft 365 certifiable, robuste et flexible. Lecture seule, preuve scellée, référentiel évolutif.">
+<title>MAS · Audit de sécurité Microsoft 365</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="vendor/fonts/v22_V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="vendor/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+<script defer src="main.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#enjeu">Aller au contenu</a>
+<div class="ambience" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="logo" href="#accueil" aria-label="MAS, retour en haut"><img src="assets/favicon.svg" alt="" width="26" height="26"><span>MAS</span></a>
+  <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+    <a href="#enjeu">L’enjeu</a>
+    <a href="#fonctionnement">Fonctionnement</a>
+    <a href="#confiance">Confiance</a>
+    <a href="#referentiel">Référentiel</a>
+    <a href="#demo">Démo</a>
+  </nav>
+  <div class="header-actions">
+    <span class="readonly-tag"><i></i>LECTURE SEULE</span>
+    <a class="btn btn-primary btn-small" href="#demo">Voir la démo</a>
+    <button id="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+  </div>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="hero" id="accueil">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>MAS</h1>
+      <p class="acronym"><b>M</b>icrosoft <b>A</b>udit <b>S</b>ystem</p>
+      <p class="tagline">L’audit de sécurité Microsoft 365 <span class="accent">certifiable, robuste et flexible.</span></p>
+      <p class="lead">MAS audite la configuration de votre environnement Microsoft 365 <strong>sans jamais la modifier</strong>. Chaque résultat est relié à sa preuve, et l’audit se relance aussi souvent que nécessaire.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#demo">Voir MAS en action <span aria-hidden="true">▷</span></a>
+        <a class="btn btn-ghost" href="#fonctionnement">Comment ça marche <span aria-hidden="true">↓</span></a>
+      </div>
+      <ul class="value-pillars" aria-label="Les trois engagements de MAS">
+        <li><i></i><b>Certifiable</b> preuve de source</li>
+        <li><i></i><b>Robuste</b> lecture seule garantie</li>
+        <li><i></i><b>Flexible</b> référentiel évolutif</li>
+      </ul>
+    </div>
+    <div class="hero-visual">
+      <canvas id="globe" aria-hidden="true"></canvas>
+      <div class="hud" aria-label="Caractéristiques d’un audit MAS">
+        <div class="hud-row"><span>MODE</span><b class="ok">LECTURE SEULE</b></div>
+        <div class="hud-row"><span>ACCÈS</span><b>CONSENTEMENT UNIQUE</b></div>
+        <div class="hud-row"><span>PREUVE</span><b>SCELLÉE · SHA-256</b></div>
+        <div class="hud-row"><span>VERDICTS</span><b>VRAI · FAUX · INDÉTERMINÉ</b></div>
+        <div class="hud-row"><span>RÉFÉRENTIEL</span><b>IMPORTABLE</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stake: presentation v10.2, slide 2 -->
+<section class="section" id="enjeu">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">L’enjeu</span>
+      <h2>Automatiser l’audit Microsoft <span class="accent">sans perdre la confiance</span> du client.</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card stake-card">
+        <div class="card-kicker">Constat</div>
+        <div class="ring" role="img" aria-label="45 %">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" class="ring-track"/><circle cx="60" cy="60" r="52" class="ring-arc" pathLength="100"/></svg>
+          <b>45%</b>
+        </div>
+        <p>des <strong>grandes organisations</strong> ont subi un incident dû à une <strong>mauvaise configuration</strong> de leurs services Microsoft.</p>
+        <p class="source">Source : CoreView, étude 2026 (500 DSI).</p>
+      </article>
+      <article class="card stake-card">
+        <div class="card-kicker">Enjeu</div>
+        <div class="bars">
+          <div class="bar"><span>Audit manuel</span><b>plusieurs jours</b><div class="meter"><i style="--w:100%"></i></div></div>
+          <div class="bar ok"><span>Avec MAS</span><b>quelques heures</b><div class="meter"><i style="--w:7%"></i></div></div>
+        </div>
+        <p>Réduire le <strong>temps d’audit</strong> de plusieurs jours à quelques heures.</p>
+      </article>
+      <article class="card stake-card">
+        <div class="card-kicker">Objectifs</div>
+        <p class="goal"><strong>Audit certifiable</strong> (preuve de source)</p>
+        <p class="goal"><strong>Lecture seule</strong> garantie</p>
+        <p class="goal"><strong>Référentiel</strong> adaptatif</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="section" id="benefices">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Ce que MAS vous apporte</span>
+      <h2>Des environnements complexes. <br><span class="accent">Des décisions plus claires.</span></h2>
+      <p class="lead">Politiques d’accès, appareils, messagerie, collaboration : la configuration Microsoft 365 est dispersée entre de nombreuses consoles. <strong>MAS la rassemble dans un audit unique, lisible et argumenté.</strong></p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/></svg></div>
+        <h3>Une vue claire</h3>
+        <p>Les paramètres qui comptent, regroupés en <strong>contrôles compréhensibles</strong>. Fini les captures d’écran et les vérifications éparses.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div>
+        <h3>Un audit qui se rejoue</h3>
+        <p>Relancez l’audit aussi souvent que nécessaire. <strong>Même méthode, mêmes critères</strong>, et beaucoup moins de manipulations.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Des constats défendables</h3>
+        <p>Chaque verdict renvoie à <strong>sa preuve</strong>. Quand une donnée manque, MAS le signale au lieu de deviner.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section" id="fonctionnement">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Comment ça marche</span>
+      <h2>Trois étapes, <span class="accent">du consentement au résultat.</span></h2>
+      <p class="lead">Aucun agent à installer. <strong>Aucun mot de passe à transmettre.</strong></p>
+    </div>
+    <ol class="grid grid-3 steps">
+      <li class="card step">
+        <span class="step-number">01 · CONNECTER</span>
+        <h3>Un consentement, une seule fois</h3>
+        <p>Un administrateur autorise MAS via <strong>Microsoft Entra ID</strong>. L’accès est limité à la lecture.</p>
+      </li>
+      <li class="card step">
+        <span class="step-number">02 · AUDITER</span>
+        <h3>Une collecte sans écriture</h3>
+        <p>MAS lit la configuration, source par source, <strong>sans jamais la modifier</strong>. Un instantané daté et scellé est conservé.</p>
+      </li>
+      <li class="card step">
+        <span class="step-number">03 · AGIR</span>
+        <h3>Des résultats exploitables</h3>
+        <p>Chaque contrôle reçoit un <strong>verdict expliqué</strong>, relié à sa preuve, avec la remédiation à appliquer.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Trust -->
+<section class="section" id="confiance">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pourquoi nous faire confiance</span>
+      <h2>Conçu pour être <span class="accent">sûr et vérifiable.</span></h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="icon green"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <h3>Lecture seule, par construction</h3>
+        <p>MAS ne demande que des <strong>permissions de lecture</strong>. Chaque client dispose de son propre environnement : ses données ne sont jamais mélangées.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg></div>
+        <h3>Une preuve qu’on peut revérifier</h3>
+        <p>Les données collectées sont figées et <strong>scellées par une empreinte SHA-256</strong>. Toute altération est détectée à la relecture.</p>
+      </article>
+      <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.5h.01"/></svg></div>
+        <h3>Jamais de verdict inventé</h3>
+        <p>Une donnée absente ne devient ni conforme ni non conforme. MAS affiche <strong>« Indéterminé »</strong> quand il ne peut pas conclure.</p>
+        <div class="truth-chips" aria-label="Les trois verdicts possibles"><span class="t">VRAI</span><span class="f">FAUX</span><span class="u">INDÉTERMINÉ</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Referential: presentation v10.2, slide 8 -->
+<section class="section" id="referentiel">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Référentiel évolutif</span>
+      <h2>Le référentiel évolue <span class="accent">hors de l’application.</span></h2>
+      <p class="lead">Les contrôles sont des données, pas du code. <strong>Le référentiel suit les nouvelles exigences</strong> sans attendre une nouvelle version du logiciel. <strong>Faire évoluer le référentiel, c’est déposer un fichier.</strong> L’application le lit, le valide et l’importe, sans jamais y écrire.</p>
+    </div>
+    <div class="refmap">
+      <svg viewBox="0 0 1180 430" role="img" aria-label="Import d’un nouveau référentiel : l’écriture, l’assemblage avec contrôle et le dépôt dans un dossier se font hors de l’application ; MAS importe le fichier en lecture seule.">
+        <defs><marker id="arrow-head" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3z" fill="rgba(200,215,255,.7)"/></marker></defs>
+        <rect x="14" y="44" width="820" height="372" rx="26" class="ref-out"/><text x="424" y="30" text-anchor="middle" class="tl">HORS DE L’APPLICATION · L’AUTEUR DU RÉFÉRENTIEL</text>
+        <rect x="876" y="44" width="290" height="372" rx="26" class="ref-app"/><text x="1021" y="30" text-anchor="middle" class="tl">APPLICATION MAS</text>
+
+        <text x="150" y="90" text-anchor="middle" class="tl">01</text>
+        <rect x="80" y="104" width="140" height="140" rx="22" class="dn dc"/>
+        <g transform="translate(150 174)" class="ref-ico">
+          <rect x="-26" y="-36" width="46" height="62" rx="6"/><path d="M-16 -20 H10 M-16 -8 H10 M-16 4 H0"/>
+          <path d="M6 34 L30 10 L38 18 L14 42 L4 44 Z" class="ref-pen"/>
+        </g>
+        <text x="150" y="290" text-anchor="middle" class="tx">Écriture</text>
+        <text x="150" y="322" text-anchor="middle" class="ts">contrôles décrits</text><text x="150" y="346" text-anchor="middle" class="ts">en fichiers JSON</text>
+
+        <text x="424" y="90" text-anchor="middle" class="tl">02</text>
+        <rect x="354" y="104" width="140" height="140" rx="22" class="dn dv"/>
+        <g transform="translate(424 174)" class="ref-ico">
+          <rect x="-34" y="-34" width="34" height="44" rx="5"/><rect x="-18" y="-26" width="34" height="44" rx="5" class="ref-sheet"/>
+          <circle cx="20" cy="20" r="17" class="ref-ok"/><path d="M12 20 l6 6 l10 -11" class="ref-okp"/>
+        </g>
+        <text x="424" y="290" text-anchor="middle" class="tx">Assemblage + contrôle</text>
+        <text x="424" y="322" text-anchor="middle" class="ts">un seul fichier, scellé</text><text x="424" y="346" text-anchor="middle" class="ts">lecture seule vérifiée</text>
+
+        <text x="698" y="90" text-anchor="middle" class="tl">03</text>
+        <rect x="628" y="104" width="140" height="140" rx="22" class="dn da"/>
+        <g transform="translate(698 190)" class="ref-box">
+          <rect x="-11" y="-78" width="22" height="28" rx="3" class="ref-doc"/><path d="M0 -46 V-36" class="ref-drop"/>
+          <path d="M-38 -6 L0 -24 L-8 -46 L-46 -28 Z" class="ref-flap"/><path d="M0 -24 L38 -6 L46 -28 L8 -46 Z" class="ref-flap"/>
+          <path d="M-38 -6 L0 -24 L38 -6 L0 12 Z" class="ref-in"/>
+          <path d="M-38 -6 L0 12 L0 46 L-38 28 Z" class="ref-l"/><path d="M0 12 L38 -6 L38 28 L0 46 Z" class="ref-r"/>
+        </g>
+        <text x="698" y="290" text-anchor="middle" class="tx">Dépôt</text>
+        <text x="698" y="322" text-anchor="middle" class="ts mono">referentiel.json</text><text x="698" y="346" text-anchor="middle" class="ts">dans un dossier de l’hôte</text>
+
+        <text x="1021" y="90" text-anchor="middle" class="tl">04</text>
+        <rect x="951" y="104" width="140" height="140" rx="22" class="dn dg"/>
+        <g transform="translate(1021 174)" class="ref-ico">
+          <ellipse cx="-4" cy="-26" rx="32" ry="10"/><path d="M-36 -26 V24 A32 10 0 0 0 28 24 V-26 M-36 0 A32 10 0 0 0 28 0"/>
+          <circle cx="24" cy="24" r="17" class="ref-ok"/><path d="M16 24 l6 6 l10 -11" class="ref-okp"/>
+        </g>
+        <text x="1021" y="290" text-anchor="middle" class="tx">Import</text>
+        <text x="1021" y="322" text-anchor="middle" class="ts">automatique</text><text x="1021" y="346" text-anchor="middle" class="ts">validé ou refusé, tracé</text>
+
+        <path d="M232 174 H342" class="flow fc" marker-end="url(#arrow-head)"/>
+        <path d="M506 174 H616" class="flow fv" marker-end="url(#arrow-head)"/>
+        <path d="M780 174 H939" class="flow fg" marker-end="url(#arrow-head)"/><text x="855" y="160" text-anchor="middle" class="tl">lecture seule</text>
+        <text x="424" y="394" text-anchor="middle" class="tl">AUCUN CODE · AUCUN REDÉPLOIEMENT</text>
+        <text x="1021" y="394" text-anchor="middle" class="tl">LA VERSION EN SERVICE CHANGE</text>
+      </svg>
+    </div>
+    <ol class="ref-steps" aria-label="Les quatre étapes de mise à jour du référentiel">
+      <li><span>01</span><b>Écriture</b><small>Contrôles décrits en fichiers JSON.</small></li>
+      <li><span>02</span><b>Assemblage + contrôle</b><small>Un seul fichier, scellé, lecture seule vérifiée.</small></li>
+      <li><span>03</span><b>Dépôt</b><small><code>referentiel.json</code> dans un dossier de l’hôte.</small></li>
+      <li class="in-app"><span>04</span><b>Import par MAS</b><small>Automatique, validé ou refusé, tracé.</small></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Audience -->
+<section class="section audience" id="pour-qui">
+  <div class="wrap">
+    <span class="eyebrow">Pour qui ?</span>
+    <h2>Pour toute entreprise qui veut <span class="accent">renforcer la robustesse</span> de son environnement Microsoft 365.</h2>
+    <p class="lead">Qu’il soit mené par un consultant, une équipe interne ou demandé par la direction, l’audit repose sur la même base : <strong>des constats clairs et prouvés.</strong></p>
+    <ul class="audience-list">
+      <li><b>Consultants</b> et auditeurs</li>
+      <li><b>Équipes IT</b> et sécurité</li>
+      <li><b>Directions</b> et décideurs</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Demo -->
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Démonstration</span>
+      <h2>MAS en action, <span class="accent">en moins de deux minutes.</span></h2>
+    </div>
+    <ol class="demo-steps">
+      <li>Consentement unique</li>
+      <li>Lancement de l’audit</li>
+      <li>Verdicts expliqués</li>
+      <li>Preuve du constat</li>
+    </ol>
+    <div class="demo-frame">
+      <div class="demo-bar" aria-hidden="true"><i></i><i></i><i></i><span>MAS · audit d’un tenant de démonstration</span></div>
+      <video controls playsinline preload="none" poster="assets/demo-poster.webp" src="assets/demo.mp4" aria-label="Vidéo de démonstration de MAS"></video>
+    </div>
+  </div>
+</section>
+
+<!-- Final call to action -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="cta-panel cta-panel-compact">
+      <div class="cta-copy">
+        <span class="eyebrow">Et maintenant ?</span>
+        <h2>Envie de voir MAS sur <span class="accent">votre environnement</span> ?</h2>
+        <p class="lead">MAS est développé pour Oxydian. Parlons de votre contexte et de vos exigences.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.oxydian.fr/" target="_blank" rel="noopener">Découvrir l’offre de services Oxydian <span aria-hidden="true">↗</span></a>
+        <a class="btn btn-ghost" href="#demo">Revoir la démo <span aria-hidden="true">▷</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>MAS · OXYDIAN</span>
+    <span>Conçu par Laurent Lacôte &amp; Erwan Barat · Holberton School</span>
+    <a href="#accueil">Haut de page ↑</a>
+  </div>
+</footer>
+</body>
+</html>
